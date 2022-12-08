@@ -52,7 +52,7 @@ jobs:
             ${{ github.repository }}
             
             🔎See changes: 
-            https://github.com/${{ github.repository }}/pull/${{github.head_ref}}
+            https://github.com/${{ github.repository }}/pull/${{github.event.number}}
             
             --------
 
