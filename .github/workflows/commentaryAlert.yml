@@ -47,10 +47,8 @@ jobs:
           message: |
             👨‍⚕️${{ github.actor }} Created commentary.
 
-            👨‍⚕️${{ github.event.pull_request.commit_comment}}
-             "${{ github.event.pull_request.head.ref }}"
-             "${{ github.event.pull_request.base.ref }}"
-    
+            👨‍⚕️${{ toJSON(github)}}
+          
               
 
             
