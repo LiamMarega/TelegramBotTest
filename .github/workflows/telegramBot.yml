@@ -1,5 +1,4 @@
 # This is a basic workflow to help you get started with Actions
-
 name: CI
 
 # Controls when the workflow will run
@@ -35,14 +34,33 @@ jobs:
           
           
           
-       # Runs the telegram notify action to send a notification
-      - name: Telegram Message Notify
+       # Runs the telegram notify action to PULL REQUESTS
+      - name: Telegram Notify Pull request
         uses: appleboy/telegram-action@v0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
 
+            👨‍⚕️${{ github.actor }} created commit.
+            
+            📚Repository: 
+            ${{ github.repository }}
+            
+            🔎See changes: 
+            https://github.com/${{ github.repository }}/pull/${{github.event.number}}
+            
+
+
+       # Runs the telegram notify action to COMMENTARIES
+       
+      - name: Telegram Notify Commentaries
+        uses: appleboy/telegram-action@v0.1.1
+        if: github.event.issue.pull_request
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
             👨‍⚕️${{ github.actor }} created commit.
             
             📚Repository: 
