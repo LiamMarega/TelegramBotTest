@@ -47,7 +47,7 @@ jobs:
           message: |
             👨‍⚕️${{ github.actor }} Created commentary.
 
-            👨‍⚕️${{ github.sha }}.
+            👨‍⚕️${{ github.base_ref }}.
 
             
       
