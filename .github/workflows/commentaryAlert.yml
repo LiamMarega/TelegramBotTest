@@ -47,9 +47,9 @@ jobs:
           message: |
             👨‍⚕️${{ github.actor }} Created commentary.
 
-            👨‍⚕️${{ github.event.commented.url }}
-             "${{ github.created_at }}"
-
+            👨‍⚕️${{ github.event.pull_request[0].message }}
+             "${{ github.event.pull_request.message }}"
+             "${{ github.event.pull_request }}"
     
               
 
