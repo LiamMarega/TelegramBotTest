@@ -46,6 +46,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             👨‍⚕️${{ github.actor }} Created commentary.
+
             💬${{ github.event.comment.body}}
 
             🔎See changes: 
