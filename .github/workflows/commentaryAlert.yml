@@ -48,7 +48,7 @@ jobs:
             👨‍⚕️${{ github.actor }} Created commentary.
 
             👨‍⚕️${{ github.event.commented.url }}
-             "${{ github.commented }}"
+             "${{ github.created_at }}"
 
     
               
