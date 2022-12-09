@@ -47,7 +47,11 @@ jobs:
           message: |
             👨‍⚕️${{ github.actor }} Created commentary.
 
-            👨‍⚕️${{ github.event.commented }}.
+            👨‍⚕️${{ github.event.commented }}
+             "${{ github.event.commented }}"
+
+    
+              
 
             
       
