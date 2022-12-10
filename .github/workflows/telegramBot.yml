@@ -8,6 +8,8 @@ on:
     branches: [ "main" ]
   issue_comment:
     types: [created]
+  pull_request_review:
+    types: [submitted]  
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -67,4 +69,18 @@ jobs:
             💬${{ github.event.comment.body}}
             
             🔎See changes: 
+            ${{ github.event.comment.html_url}}
+
+
+     # Runs the telegram notify action to send a notification
+      - name: Telegram Message Notify
+        if: ${{github.event.review.state == 'approved'}}
+        uses: appleboy/telegram-action@v0.1.1
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ✅${{ github.actor }} approved a pull request.
+            
+            📎See uptade: 
             ${{ github.event.comment.html_url}}
