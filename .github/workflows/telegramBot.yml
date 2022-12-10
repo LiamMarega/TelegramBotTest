@@ -71,7 +71,7 @@ jobs:
       
        # Runs the telegram notify action to send a notification
       - name: Telegram Message Notify
-        if: github.event.comment.body
+        if: github.event.comment.body == github.issue_comment
         uses: appleboy/telegram-action@v0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }}
