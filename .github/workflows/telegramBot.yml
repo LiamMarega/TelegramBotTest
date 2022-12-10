@@ -49,6 +49,8 @@ jobs:
             📚Repository: 
             ${{ github.repository }}
             
+            ${{ toJson(github) }}
+            
             🔎See changes: 
             https://github.com/${{ github.repository }}/pull/${{github.event.number}}
             
