@@ -37,7 +37,7 @@ jobs:
           
           
        # Runs the telegram notify action to PULL REQUESTS
-      - name: Telegram Notify Pull request
+      - name: Telegram Message Notify
         uses: appleboy/telegram-action@v0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }}
@@ -54,19 +54,30 @@ jobs:
             
 
 
-       # Runs the telegram notify action to COMMENTARIES
-       
-      - name: Telegram Notify Commentaries
-        uses: appleboy/telegram-action@v0.1.1
+  
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
         if: github.event.issue.pull_request
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          
+          
+      
+       # Runs the telegram notify action to send a notification
+      - name: Telegram Message Notify
+        uses: appleboy/telegram-action@v0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            👨‍⚕️${{ github.actor }} created commit.
-            
-            📚Repository: 
-            ${{ github.repository }}
-            
+            👨‍⚕️${{ github.actor }} Created commentary.
+            💬${{ github.event.comment.body}}
             🔎See changes: 
-            https://github.com/${{ github.repository }}/pull/${{github.event.number}}
+            ${{ github.event.comment.html_url}}
