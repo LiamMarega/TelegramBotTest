@@ -57,7 +57,6 @@ jobs:
   
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-        if: github.event.issue.pull_request
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
@@ -72,6 +71,7 @@ jobs:
       
        # Runs the telegram notify action to send a notification
       - name: Telegram Message Notify
+        if: github.event.comment.body
         uses: appleboy/telegram-action@v0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }}
