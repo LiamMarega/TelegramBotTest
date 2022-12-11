@@ -80,6 +80,5 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             ✅${{ github.actor }} approved a pull request.
-            
-            📎See uptade: 
-            ${{ github.event.comment.html_url}}
+            📚Repository: 
+             ${{ github.repository }}
