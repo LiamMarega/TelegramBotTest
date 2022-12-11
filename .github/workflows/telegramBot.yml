@@ -48,7 +48,7 @@ jobs:
 
             👨‍⚕️${{ github.actor }} created commit.
             
-            ${{toJSON(github.event.action}}
+            ${{toJson(github.event.action)}}
             
             📚Repository: 
             ${{ github.repository }}
