@@ -39,7 +39,7 @@ jobs:
           
        # Runs the telegram notify action to PULL REQUESTS
       - name: Telegram Message Notify
-        if: ${{github.event_name == 'pull_request' && github.event.action == 'open' }} 
+        if: ${{github.event_name == 'pull_request' && github.event.action != 'closed' }} 
         uses: appleboy/telegram-action@v0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }}
