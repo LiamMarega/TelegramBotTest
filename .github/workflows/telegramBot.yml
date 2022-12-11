@@ -39,16 +39,14 @@ jobs:
           
        # Runs the telegram notify action to PULL REQUESTS
       - name: Telegram Message Notify
-        if: ${{github.event_name == 'pull_request' }} 
+        if: ${{github.event_name == 'pull_request' && github.event.pull_request.merged == false}} 
         uses: appleboy/telegram-action@v0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
 
-            👨‍⚕️${{ github.actor }} created commit.
-            
-            ${{toJson(github.event.action)}}
+            👨‍⚕️${{ github.actor }} created commit.   
             
             📚Repository: 
             ${{ github.repository }}
