@@ -48,8 +48,6 @@ jobs:
 
             👨‍⚕️${{ github.actor }} created commit.   
             
-            ${{ toJson(github) }}
-            
             📚Repository: 
             ${{ github.repository }}
             
